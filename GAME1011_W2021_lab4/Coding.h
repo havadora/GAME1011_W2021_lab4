@@ -12,42 +12,49 @@ public:
 	{
 		    char temp;
 			char* ch;
-			
+			ch = &str[0];
 			temp = ch[MinSize];
 			ch[MinSize] = ch[MaxSize];
 			ch[MaxSize] = temp;
 			
 			if ( MaxSize - MinSize == 1)
 			{
-				cout << "The reverse of: ";
-				for (int i = 0; i < MaxSize; i++)
-				{
-					cout << ch[i];
-				}
+				display(ch, str);
+
 		    }
 			else if ( MaxSize - MinSize == 0)
 			{
-				cout << "The reverse: ";
-				for (int i = 0; i < MaxSize; i++)
-				{
-					cout << ch[i];
-				}
+				display(ch,str );
 			}
 			else
-			{
-				return Reverse(MaxSize - 1, MinSize + 1, str);
-			}
+			return Reverse(MaxSize - 1, MinSize + 1, str);
+			
 	}
 	int Compare(string str, int MaxSize, int MinSize)
 	{
 		char* ch;
 		ch = &str[0];
+		
+		if ((MaxSize - MinSize == 1 && str.length() > 2 ) || MaxSize - MinSize == 0  )
+		{
+			return 0;
+		}
 		if (ch[MinSize] == ch[MaxSize])
 		{
 				return Compare(str, MaxSize - 1, MinSize + 1);
 		}
+		
 		else
 			return -1;
+	}
+	void display(char* ch, string M )
+	{
+		int n = M.length();
+		cout << "The reverse of:";
+		for (int i = 0; i < n+1; i++)
+		{
+			cout << ch[i];
+		}
 	}
 };
 

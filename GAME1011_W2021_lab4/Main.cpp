@@ -32,11 +32,11 @@ int main()
 			cout << "Enter the word: ";
 			cin >> strr;
 			int n = strr.length();
-			if (str.Compare(strr, n+1, 0) == -1)
+			if (str.Compare(strr, n-1, 0) == -1)
 			{
 				cout << "This is not palindrome" << endl;
 			}
-			if (str.Compare(strr, n+1, 0) == 0)
+			if (str.Compare(strr, n-1, 0) == 0)
 			{
 				cout << "This is palindrome" << endl;
 			}
@@ -67,7 +67,7 @@ int main()
 			cout << "Enter the word: ";
 			cin >> strr;
 			int n = strr.length();
-			str.Reverse(n+1, 0, strr);
+			str.Reverse(n, 0, strr);
 			cout << "";
 			break;
 		}
@@ -75,5 +75,5 @@ int main()
 			conti = false;
 		}
 	}
-	system("pause");
+	cout << "\nThank you for using ";
 }
