@@ -8,16 +8,18 @@ class ForString
 {
 public:
 	
-	void Reverse(char ch[], int MaxSize, int MinSize, string str)
+	void Reverse(int MaxSize, int MinSize, string str)
 	{
-		char temp;
+		    char temp;
+			char* ch;
+			
 			temp = ch[MinSize];
 			ch[MinSize] = ch[MaxSize];
 			ch[MaxSize] = temp;
 			
 			if ( MaxSize - MinSize == 1)
 			{
-				cout << "The reverse of " << str << ": ";
+				cout << "The reverse of: ";
 				for (int i = 0; i < MaxSize; i++)
 				{
 					cout << ch[i];
@@ -25,27 +27,24 @@ public:
 		    }
 			else if ( MaxSize - MinSize == 0)
 			{
-				cout << "The reverse of " << str << ": ";
+				cout << "The reverse: ";
 				for (int i = 0; i < MaxSize; i++)
 				{
 					cout << ch[i];
 				}
 			}
 			else
-			return Reverse(ch, MaxSize - 1, MinSize + 1, str);
+			{
+				return Reverse(MaxSize - 1, MinSize + 1, str);
+			}
 	}
-	int Compare(char ch[], int MaxSize, int MinSize)
+	int Compare(string str, int MaxSize, int MinSize)
 	{
+		char* ch;
+		ch = &str[0];
 		if (ch[MinSize] == ch[MaxSize])
 		{
-			if (MaxSize - MinSize == 1)
-			{
-				return 0;
-			}
-			else
-			{
-				return Compare(ch, MaxSize - 1, MinSize + 1);
-			}
+				return Compare(str, MaxSize - 1, MinSize + 1);
 		}
 		else
 			return -1;
